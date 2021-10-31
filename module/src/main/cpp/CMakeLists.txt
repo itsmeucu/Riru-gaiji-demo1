@@ -35,8 +35,17 @@ find_package(riru REQUIRED CONFIG)
 
 include_directories(include)
 
+include_directories(
+        dobby
+)
+
+# 使用预编译库
+add_library(local_dobby STATIC IMPORTED)
+
+set_target_properties(local_dobby PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${ANDROID_ABI}/libdobby.a)
+
 add_library(${MODULE_NAME} SHARED main.cpp ${CMAKE_CURRENT_BINARY_DIR}/config.cpp)
-target_link_libraries(${MODULE_NAME} log riru::riru)
+target_link_libraries(${MODULE_NAME} local_dobby log riru::riru)
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_custom_command(TARGET ${MODULE_NAME} POST_BUILD
