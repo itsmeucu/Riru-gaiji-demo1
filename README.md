@@ -9,7 +9,7 @@
 - 将本模块推入手机
 - 在MagiskManager中刷入本模块
 - 重启手机
-- 根据实际需求修改build-conf.prop和prop-prop，并将它们推入手机的·`/data/local/tmp/`目录
+- 根据实际需求修改[build-conf.prop](example/build-conf.prop)和[prop-prop](example/prop-conf.prop)，并将它们推入手机的·`/data/local/tmp/`目录
 
 ### build-conf.prop
 
