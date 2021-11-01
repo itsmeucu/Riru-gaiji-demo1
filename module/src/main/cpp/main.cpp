@@ -94,7 +94,14 @@ static void setBuild(JNIEnv* env){
         jstring key = env->NewStringUTF(it->first.c_str());
         jstring value = env->NewStringUTF(it->second.c_str());
         jfieldID buildField = env->GetStaticFieldID(BuildClass,it->first.c_str(),"Ljava/lang/String;");
+        if(env->ExceptionCheck()){
+            env->ExceptionClear();
+            continue;
+        }
         env->SetStaticObjectField(BuildClass,buildField,value);
+        if(env->ExceptionCheck()){
+            env->ExceptionClear();
+        }
     }
 }
 
