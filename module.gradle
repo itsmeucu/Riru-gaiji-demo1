@@ -25,6 +25,6 @@ ext {
     moduleName = "gaiji"
     moduleAuthor = "luoyesiqiu"
     moduleDescription = "Riru module. Requires Riru $moduleMinRiruVersionName or above."
-    moduleVersion = "v26.0.0"
+    moduleVersion = "v1.0.0"
     moduleVersionCode = 26
 }
