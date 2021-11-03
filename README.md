@@ -13,7 +13,7 @@
 
 ### build-conf.prop
 
-该文件对应android.os.Build类下的字段，比如想修改机型为`Mi5`则内容应为：
+该文件对应[android.os.Build](https://developer.android.com/reference/android/os/Build)类下的字段，比如想修改机型为`Mi5`则内容应为：
 
 ```
 MODEL=Mi5
