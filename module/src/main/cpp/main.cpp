@@ -73,9 +73,15 @@ void readPropFile(const char* filename,std::map<std::string,std::string> &map){
         LOGW("open config file fail!");
         return;
     }
-    char buf[256];
+    char buf[128] = {0};
 
-    while(fgets(buf,256,fp) != NULL){
+    while(fgets(buf,128,fp) != NULL){
+        for(int i = 0;buf[i] != '\0';i++){
+            if(buf[i] == '\r' || buf[i] == '\n'){
+                buf[i] = '\0';
+                break;
+            }
+        }
         char *sep = strchr(buf,'=');
         *sep = '\0';
         std::string key(buf);
